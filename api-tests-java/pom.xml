@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <name>api-tests-java</name>
-  <description>API test automation using Playwright Java (APIRequestContext) + JUnit 5, with an AI healing loop</description>
+  <description>API test automation using Playwright Java (APIRequestContext) + TestNG, with an AI healing loop</description>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
@@ -18,7 +18,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <playwright.version>1.49.0</playwright.version>
-    <junit.version>5.11.3</junit.version>
+    <testng.version>7.10.2</testng.version>
     <jackson.version>2.18.1</jackson.version>
     <slf4j.version>2.0.16</slf4j.version>
     <logback.version>1.5.12</logback.version>
@@ -36,9 +36,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${junit.version}</version>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -63,7 +63,7 @@
     <!-- Allure reporting, matching the reference API-testing architecture (Allure + JUnit XML) -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
-      <artifactId>allure-junit5</artifactId>
+      <artifactId>allure-testng</artifactId>
       <version>${allure.version}</version>
       <scope>test</scope>
     </dependency>
@@ -77,14 +77,6 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
         <configuration>
-          <properties>
-            <configurationParameters>
-              junit.jupiter.execution.parallel.enabled=false
-            </configurationParameters>
-          </properties>
-          <systemPropertyVariables>
-            <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
-          </systemPropertyVariables>
           <!-- This module only uses APIRequestContext (no browser), so skip Playwright's
                browser-binary download check on Playwright.create() — avoids a multi-minute
                timeout in sandboxed/offline CI environments. -->

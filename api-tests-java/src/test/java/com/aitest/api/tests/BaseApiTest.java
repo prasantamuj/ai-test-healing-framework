@@ -5,10 +5,12 @@ import com.microsoft.playwright.APIRequest;
 import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.RequestOptions;
+import io.qameta.allure.testng.AllureTestNg;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 /**
  * Base class every API test class extends. Owns the {@link Playwright} instance and the shared
@@ -17,12 +19,13 @@ import org.junit.jupiter.api.BeforeAll;
  *
  * <p>Never construct an {@link APIRequestContext} directly in a test — always get it from here.
  */
+@Listeners(AllureTestNg.class)
 public abstract class BaseApiTest {
 
   private static Playwright playwright;
   protected static APIRequestContext request;
 
-  @BeforeAll
+  @BeforeClass
   static void setUpRequestContext() {
     playwright = Playwright.create();
 
@@ -39,7 +42,7 @@ public abstract class BaseApiTest {
         .setTimeout(ApiConfig.timeoutMs()));
   }
 
-  @AfterAll
+  @AfterClass
   static void tearDownRequestContext() {
     if (request != null) {
       request.dispose();

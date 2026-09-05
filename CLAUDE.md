@@ -6,7 +6,7 @@ Plan → Generate → Execute → Heal loop:
 | Stack | Path | Language | Drives |
 |---|---|---|---|
 | UI (browser) | `ui-tests/` | TypeScript | Playwright + Playwright MCP server |
-| API | `api-tests-java/` | Java | Playwright Java (`APIRequestContext`) + JUnit 5 + Maven |
+| API | `api-tests-java/` | Java | Playwright Java (`APIRequestContext`) + TestNG + Maven |
 
 ## AI provider priority
 
@@ -94,8 +94,8 @@ environment setup. If it is broken, fix it before anything else.
 - Java 11+, Maven 3.9+
 - `com.microsoft.playwright:playwright` — `APIRequestContext` for HTTP calls (chosen over
   REST Assured so both stacks share one automation engine and one healing methodology)
-- JUnit 5 (`@Test`, `@Tag`) as the runner
-- Allure (`allure-junit5`) + Surefire JUnit XML for reporting
+- TestNG (`@Test(groups = {...})`) as the runner
+- Allure (`allure-testng`) + Surefire JUnit-style XML for reporting
 - SLF4J + Logback for request/response logging
 - Target API: https://jsonplaceholder.typicode.com (free, unauthenticated, stable — swap for
   your own API; keep the same conventions)
@@ -106,7 +106,7 @@ environment setup. If it is broken, fix it before anything else.
 - `api-tests-java/src/main/java/.../clients/` — "Service Objects" (the API equivalent of a Page
   Object): one class per resource/endpoint group
 - `api-tests-java/src/main/java/.../model/` — POJOs for request/response bodies
-- `api-tests-java/src/test/java/.../tests/` — JUnit 5 test classes, mirror the API's resource
+- `api-tests-java/src/test/java/.../tests/` — TestNG test classes, mirror the API's resource
   structure
 - `api-tests-java/src/test/resources/` — `application.properties`, `logback.xml`
 - `api-tests-java/specs/` — Planner output (Markdown plans), same numbering convention as UI
@@ -116,12 +116,13 @@ environment setup. If it is broken, fix it before anything else.
 - Never hardcode the base URL, headers, or credentials in a test — load from `ApiConfig`
 - One logical assertion group per test method
 - File/class names: PascalCase for Java (`PostsApiTest.java`), matching the resource under test
-- Tag every test with JUnit `@Tag("smoke")`, `@Tag("regression")`, or `@Tag("critical")`
+- Tag every test with TestNG groups: `@Test(groups = "smoke")`, `@Test(groups = "regression")`,
+  or `@Test(groups = "critical")` (a test may belong to more than one group)
 
 ### Service Object contract (API equivalent of the Page Object contract)
 - One class per resource, in `clients/`, constructor takes `APIRequestContext` only
 - Methods return a typed response wrapper (status code + parsed body), never a raw assertion
-- No JUnit `assert*`/`Assertions.*` calls inside a Service Object — assertions belong in tests
+- No TestNG `Assert.*` calls inside a Service Object — assertions belong in tests
 - No business logic (retry loops, polling) beyond what `APIRequestContext`'s own timeout config
   already provides
 
@@ -147,7 +148,8 @@ anything else.
 
 ## Forbidden (both stacks)
 
-- Do not skip, `fixme`, `@Disabled`, or comment out failing tests to make a run green
+- Do not skip, `fixme`, `enabled = false` on `@Test`, or comment out failing tests to make a run
+  green
 - Do not use `page.evaluate` (UI) unless there is no MCP tool alternative
 - Do not commit `.env`, credentials, `storage-state.json`, auth tokens, or real API keys
 - Do not modify `playwright.config.ts` or `api-tests-java/pom.xml` without asking

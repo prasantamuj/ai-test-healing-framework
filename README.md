@@ -6,7 +6,7 @@ loop across two independent stacks:
 | Stack | Path | Language | Engine |
 |---|---|---|---|
 | UI (browser) | [`ui-tests/`](./ui-tests) | TypeScript | Playwright + Playwright MCP server |
-| API | [`api-tests-java/`](./api-tests-java) | Java | Playwright Java (`APIRequestContext`) + JUnit 5 |
+| API | [`api-tests-java/`](./api-tests-java) | Java | Playwright Java (`APIRequestContext`) + TestNG |
 
 Both stacks use **the same test engine family (Playwright)** and **the same healing
 methodology** — a Planner writes a numbered Markdown plan, a Generator turns a scenario into
@@ -61,7 +61,7 @@ Short version, using Claude Code:
 1. **Plan** — `playwright-test-planner` (UI) / `api-test-planner` (API) explores the target and
    writes a numbered scenario plan to `ui-tests/specs/*.md` / `api-tests-java/specs/*.md`.
 2. **Generate** — `playwright-test-generator` / `api-test-generator` turns one scenario into a
-   Page Object + spec (UI) or a Service Object + JUnit test (API), reusing existing infra.
+   Page Object + spec (UI) or a Service Object + TestNG test (API), reusing existing infra.
 3. **Execute** — `npx playwright test` (UI) or `mvn test` (API), or the MCP `test_run` tool (UI).
 4. **Heal** — on failure, `playwright-test-healer` / `api-test-healer` classifies the root cause,
    applies a minimal fix that preserves the test's original intent, and re-runs. Both escalate to
@@ -71,8 +71,9 @@ Short version, using Claude Code:
 
 - **UI:** Playwright HTML report (`npx playwright show-report` from `ui-tests/`) and Trace Viewer
   for a screenshot-per-action timeline on both pass and fail.
-- **API:** JUnit XML (`api-tests-java/target/surefire-reports/`) plus Allure
-  (`allure-junit5` is wired in `pom.xml`) for a rich pass/fail dashboard, and per-request/response
+- **API:** JUnit-style XML (`api-tests-java/target/surefire-reports/`, produced by Surefire for
+  the TestNG suite) plus Allure (`allure-testng` is wired in `pom.xml`) for a rich pass/fail
+  dashboard, and per-request/response
   debug logs at `api-tests-java/target/req-resp.log`.
 
 ## Project structure

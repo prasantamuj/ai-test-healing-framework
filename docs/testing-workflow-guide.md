@@ -89,7 +89,7 @@ template.
 ## 2. API stack (`api-tests-java/`) — Plan → Generate → Execute → Heal
 
 The API stack mirrors the UI loop exactly, with Service Objects (`clients/`) standing in for Page
-Objects and JUnit 5 + Maven standing in for `@playwright/test`.
+Objects and TestNG + Maven standing in for `@playwright/test`.
 
 ### 2.1 Plan
 
@@ -113,7 +113,7 @@ api-tests-java/src/test/java/com/aitest/api/tests/PostsApiTest.java.
 
 Framework rules mirror the UI side: a Service Object's constructor takes only the shared
 `APIRequestContext`, returns typed responses, and never asserts anything — assertions live only in
-the JUnit test. See [`PostsApiClient.java`](../api-tests-java/src/main/java/com/aitest/api/clients/PostsApiClient.java)
+the TestNG test. See [`PostsApiClient.java`](../api-tests-java/src/main/java/com/aitest/api/clients/PostsApiClient.java)
 and [`PostsApiTest.java`](../api-tests-java/src/test/java/com/aitest/api/tests/PostsApiTest.java)
 for the real, passing result — status code AND at least one body field are always asserted
 together, never status code alone.
@@ -124,7 +124,7 @@ together, never status code alone.
 cd api-tests-java
 mvn test                                  # full suite
 mvn -Dtest=PostsApiTest test               # single class
-mvn -Dgroups=smoke test                    # tag-filtered (requires JUnit tag filtering config)
+mvn -Dgroups=smoke test                    # group-filtered (Surefire understands TestNG groups natively)
 ```
 
 Request/response bodies are logged at DEBUG level to `api-tests-java/target/req-resp.log`
@@ -168,11 +168,11 @@ wrap the action in `test.step()` and attach a screenshot in a `finally` block vi
 `testInfo.attach(...)`. This is a new `src/utils/` helper — confirm with the user first, since
 `CLAUDE.md` requires asking before adding shared infrastructure.
 
-### API: Allure + JUnit XML + request/response log
+### API: Allure + JUnit-style XML + request/response log
 
-- **JUnit XML** — `api-tests-java/target/surefire-reports/*.xml`, generated automatically by
-  Surefire on every `mvn test` run; this is what CI consumes.
-- **Allure** — `allure-junit5` is already a test-scope dependency in `pom.xml`. Generate the HTML
+- **JUnit-style XML** — `api-tests-java/target/surefire-reports/*.xml`, generated automatically by
+  Surefire (for the TestNG suite) on every `mvn test` run; this is what CI consumes.
+- **Allure** — `allure-testng` is already a test-scope dependency in `pom.xml`. Generate the HTML
   dashboard with `mvn allure:report` (writes to `target/site/allure-maven-plugin-report/`), or
   serve it live with `mvn allure:serve`.
 - **Request/response log** — every Service Object call logs the full request URL, status, and

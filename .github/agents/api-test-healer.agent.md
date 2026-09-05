@@ -33,7 +33,7 @@ Preserve the test's original intent. Fix the test, do not fix the pass/fail stat
 
 ## What you MUST NOT do
 - Change or soften assertion intent
-- Add `@Disabled` without explicit human approval
+- Set `enabled = false` on `@Test` without explicit human approval
 - Add `Thread.sleep` under any circumstance
 - Modify a shared Service Object/model without explicit human approval
 
