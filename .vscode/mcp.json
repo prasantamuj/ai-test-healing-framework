@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "playwright-test": {
+      "command": "sh",
+      "args": ["-c", "cd ui-tests && npx playwright run-test-mcp-server"]
+    }
+  }
+}

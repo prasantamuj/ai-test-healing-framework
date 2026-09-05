@@ -1,0 +1,24 @@
+# UI stack (Node/Playwright)
+ui-tests/node_modules/
+ui-tests/test-results/
+ui-tests/playwright-report/
+ui-tests/blob-report/
+ui-tests/playwright/.cache/
+ui-tests/playwright/.auth/
+
+# API stack (Java/Maven)
+api-tests-java/target/
+api-tests-java/allure-results/
+api-tests-java/allure-report/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Secrets — never commit real credentials (application.properties has no real secrets in it,
+# only the demo API's public base URL, so it stays tracked)
+.env
+**/env-*.properties

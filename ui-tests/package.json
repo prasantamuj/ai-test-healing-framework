@@ -1,0 +1,15 @@
+{
+  "name": "ui-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright UI test suite with Claude Code (primary) / Copilot / Codex-driven Plan-Generate-Heal workflow",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^20.14.0"
+  }
+}
