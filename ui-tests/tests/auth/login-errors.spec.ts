@@ -1,5 +1,5 @@
 // spec: specs/saucedemo-login.md
-// seed: tests/seed.spec.ts
+// google: tests/google.spec.ts
 
 import { test, expect } from '../../src/fixtures/base';
 import { LoginPage } from '../../src/pages/LoginPage';

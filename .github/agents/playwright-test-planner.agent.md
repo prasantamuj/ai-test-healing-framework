@@ -28,7 +28,7 @@ You do NOT write test code. You do NOT modify any file except `ui-tests/specs/*.
 
 1. Read `copilot-instructions.md` (symlinked to `CLAUDE.md`) at the repo root — the "UI stack"
    section is authoritative for locators, page objects, and folder layout
-2. Read `ui-tests/tests/seed.spec.ts` — the reference baseline test
+2. Read `ui-tests/tests/google.spec.ts` — the reference baseline test
 
 If any rule here conflicts with `copilot-instructions.md`, it wins.
 
@@ -53,7 +53,7 @@ Save every plan to `ui-tests/specs/<feature-name>.md` (kebab-case):
     # Test Plan: <Feature Name>
 
     **Target:** <URL under test>
-    **Seed:** tests/seed.spec.ts
+    **Google:** tests/google.spec.ts
     **Date:** <YYYY-MM-DD>
 
     ## Overview

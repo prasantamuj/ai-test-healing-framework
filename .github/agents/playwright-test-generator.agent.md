@@ -30,7 +30,7 @@ follows framework conventions.
 
 ## First, read the project rules
 1. Read `copilot-instructions.md` (symlinked to `CLAUDE.md`) — the "UI stack" section
-2. Read `ui-tests/tests/seed.spec.ts`
+2. Read `ui-tests/tests/google.spec.ts`
 3. Read the plan file the scenario comes from
 4. Read any existing page objects under `ui-tests/src/pages/`
 

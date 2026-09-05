@@ -82,8 +82,8 @@ coming from.
 - No `networkidle` waits
 - Custom timeouts only when justified in a code comment
 
-### Seed file
-`ui-tests/tests/seed.spec.ts` is the baseline every UI agent references for base URL and
+### Google file
+`ui-tests/tests/google.spec.ts` is the baseline every UI agent references for base URL and
 environment setup. If it is broken, fix it before anything else.
 
 ---
@@ -132,8 +132,8 @@ environment setup. If it is broken, fix it before anything else.
 - No blanket `try/catch` that swallows a failed assertion
 - Custom timeouts only when justified in a code comment
 
-### Seed file
-`api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java` is the baseline every API
+### Google file
+`api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java` is the baseline every API
 agent references for base URL and environment reachability. If it is broken, fix it before
 anything else.
 

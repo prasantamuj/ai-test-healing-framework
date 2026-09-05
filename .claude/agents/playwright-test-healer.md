@@ -60,7 +60,7 @@ failing tests are visible in CI; weakened tests hide in green builds.
 | B | UI restructure (element moved) | Update steps |
 | C | Copy change (text on screen changed) | Update text assertion after verifying |
 | D | Real regression (feature broken) | Report the bug — do NOT touch the test |
-| E | Environment issue (app down, seed broken) | Report — do NOT touch the test |
+| E | Environment issue (app down, google test broken) | Report — do NOT touch the test |
 | F | Flakiness (race condition, timing) | Add a proper wait tied to real state |
 
 Before assuming locator drift, check for a real failure: read console messages for JS errors and

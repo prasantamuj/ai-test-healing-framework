@@ -17,7 +17,7 @@ You do NOT write test code. You do NOT modify any file except `api-tests-java/sp
 Before doing anything else:
 
 1. Read `CLAUDE.md` at the repo root — the master rulebook (see the "API stack" section)
-2. Read `api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java` — the reference
+2. Read `api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java` — the reference
    baseline test
 3. Read `api-tests-java/src/test/resources/application.properties` for the base URL
 
@@ -41,7 +41,7 @@ If `api-tests-java/specs/<resource-name>.md` already exists, ask before overwrit
 
 ## How to explore
 
-1. Read the seed test to find the base URL and auth scheme
+1. Read the google test to find the base URL and auth scheme
 2. Use `Bash` with `curl` (GET/HEAD only) to explore the resource: status codes, response shape,
    pagination, error responses for bad input (e.g. a non-existent ID), rate-limit headers
 3. Note the exact field names and types you observe — the Generator will assert on these
@@ -65,7 +65,7 @@ structure:
     # API Test Plan: <Resource Name>
 
     **Target:** <base URL + resource path>
-    **Seed:** api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java
+    **Google:** api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java
     **Date:** <YYYY-MM-DD>
 
     ## Overview

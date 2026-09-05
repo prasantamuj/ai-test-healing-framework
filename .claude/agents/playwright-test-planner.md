@@ -23,7 +23,7 @@ path (e.g. `ui-tests/specs/login.md`).
 Before doing anything else:
 
 1. Read `CLAUDE.md` at the repo root — the master rulebook (see the "UI stack" section)
-2. Read `ui-tests/tests/seed.spec.ts` — the reference baseline test
+2. Read `ui-tests/tests/google.spec.ts` — the reference baseline test
 
 If any rule here conflicts with `CLAUDE.md`, `CLAUDE.md` wins.
 
@@ -87,7 +87,7 @@ this structure:
     # Test Plan: <Feature Name>
 
     **Target:** <URL under test>
-    **Seed:** tests/seed.spec.ts
+    **Google:** tests/google.spec.ts
     **Date:** <YYYY-MM-DD>
 
     ## Overview

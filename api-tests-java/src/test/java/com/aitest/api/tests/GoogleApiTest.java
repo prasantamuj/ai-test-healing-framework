@@ -5,11 +5,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Seed — environment baseline. Every API agent (Planner/Generator/Healer) reads this first to
+ * Google — environment baseline. Every API agent (Planner/Generator/Healer) reads this first to
  * find the base URL and confirm the target API is reachable, before doing anything else. If this
  * fails, fix it before touching any other test.
  */
-public class SeedApiTest extends BaseApiTest {
+public class GoogleApiTest extends BaseApiTest {
 
   @Test(groups = "smoke", description = "JSONPlaceholder API is reachable and returns posts")
   public void apiIsReachable() {

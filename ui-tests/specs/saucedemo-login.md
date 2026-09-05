@@ -1,7 +1,7 @@
 # Test Plan: SauceDemo Login
 
 **Target:** https://www.saucedemo.com
-**Seed:** tests/seed.spec.ts
+**Google:** tests/google.spec.ts
 **Date:** 2026-09-04
 
 ## Overview
@@ -14,7 +14,7 @@ from a fresh, unauthenticated visit to the login page.
 
 - App is reachable at https://www.saucedemo.com
 - No prior session/storage state — each scenario starts logged out
-- Credentials come from `tests/data/users.json`; password for all seed users is `secret_sauce`
+- Credentials come from `tests/data/users.json`; password for all google users is `secret_sauce`
 
 ## Scenarios
 

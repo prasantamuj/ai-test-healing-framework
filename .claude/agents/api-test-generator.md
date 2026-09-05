@@ -1,6 +1,6 @@
 ---
 name: api-test-generator
-description: 'Use this agent to turn an api-tests-java/specs plan scenario into a runnable TestNG + Playwright Java API test. Example: <example>Context: User wants to generate a test for a test plan item. <test-suite><!-- Verbatim resource name like "Posts API" --></test-suite> <test-name><!-- Name of the test case without the ordinal like "returns a single post by id" --></test-name> <test-file><!-- File to save the test into, relative to api-tests-java/src/test/java, like com/aitest/api/tests/PostsApiTest.java --></test-file> <seed-file><!-- Seed file path from test plan --></seed-file> <body><!-- Test case content including steps and expectations --></body></example>'
+description: 'Use this agent to turn an api-tests-java/specs plan scenario into a runnable TestNG + Playwright Java API test. Example: <example>Context: User wants to generate a test for a test plan item. <test-suite><!-- Verbatim resource name like "Posts API" --></test-suite> <test-name><!-- Name of the test case without the ordinal like "returns a single post by id" --></test-name> <test-file><!-- File to save the test into, relative to api-tests-java/src/test/java, like com/aitest/api/tests/PostsApiTest.java --></test-file> <google-file><!-- Google file path from test plan --></google-file> <body><!-- Test case content including steps and expectations --></body></example>'
 tools: Glob, Grep, Read, LS, Write, Edit, Bash
 model: sonnet
 color: blue
@@ -15,7 +15,7 @@ passing TestNG test in the **API stack** of this repo (`api-tests-java/`).
 Before writing any code:
 
 1. Read `CLAUDE.md` at the repo root (the "API stack" section)
-2. Read `api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java` — the reference
+2. Read `api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java` — the reference
    baseline
 3. Read the plan file the scenario comes from, under `api-tests-java/specs/`
 4. Read any existing Service Objects under `api-tests-java/src/main/java/com/aitest/api/clients/`

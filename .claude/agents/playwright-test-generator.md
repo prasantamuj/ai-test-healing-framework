@@ -1,6 +1,6 @@
 ---
 name: playwright-test-generator
-description: 'Use this agent to turn a ui-tests/specs plan scenario into a runnable Playwright TypeScript spec under ui-tests/. Example: <example>Context: User wants to generate a test for a test plan item. <test-suite><!-- Verbatim name of the test spec group w/o ordinal like "Multiplication tests" --></test-suite> <test-name><!-- Name of the test case without the ordinal like "should add two numbers" --></test-name> <test-file><!-- Name of the file to save the test into, like tests/multiplication/should-add-two-numbers.spec.ts, relative to ui-tests/ --></test-file> <seed-file><!-- Seed file path from test plan --></seed-file> <body><!-- Test case content including steps and expectations --></body></example>'
+description: 'Use this agent to turn a ui-tests/specs plan scenario into a runnable Playwright TypeScript spec under ui-tests/. Example: <example>Context: User wants to generate a test for a test plan item. <test-suite><!-- Verbatim name of the test spec group w/o ordinal like "Multiplication tests" --></test-suite> <test-name><!-- Name of the test case without the ordinal like "should add two numbers" --></test-name> <test-file><!-- Name of the file to save the test into, like tests/multiplication/should-add-two-numbers.spec.ts, relative to ui-tests/ --></test-file> <google-file><!-- Google file path from test plan --></google-file> <body><!-- Test case content including steps and expectations --></body></example>'
 tools: Glob, Grep, Read, LS, mcp__playwright-test__browser_click, mcp__playwright-test__browser_drag, mcp__playwright-test__browser_evaluate, mcp__playwright-test__browser_file_upload, mcp__playwright-test__browser_handle_dialog, mcp__playwright-test__browser_hover, mcp__playwright-test__browser_navigate, mcp__playwright-test__browser_press_key, mcp__playwright-test__browser_select_option, mcp__playwright-test__browser_snapshot, mcp__playwright-test__browser_type, mcp__playwright-test__browser_verify_element_visible, mcp__playwright-test__browser_verify_list_visible, mcp__playwright-test__browser_verify_text_visible, mcp__playwright-test__browser_verify_value, mcp__playwright-test__browser_wait_for, mcp__playwright-test__generator_read_log, mcp__playwright-test__generator_setup_page, mcp__playwright-test__generator_write_test
 model: sonnet
 color: blue
@@ -21,7 +21,7 @@ repo directly, use the full repo path (e.g. `ui-tests/tests/auth/standard-login.
 Before writing any code:
 
 1. Read `CLAUDE.md` at the repo root (the "UI stack" section)
-2. Read `ui-tests/tests/seed.spec.ts` — the reference baseline
+2. Read `ui-tests/tests/google.spec.ts` — the reference baseline
 3. Read the plan file the scenario comes from, under `ui-tests/specs/`
 4. Read any existing page objects under `ui-tests/src/pages/`
 

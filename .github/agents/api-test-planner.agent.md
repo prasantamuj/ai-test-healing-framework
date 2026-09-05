@@ -15,7 +15,7 @@ read-only requests and produce a numbered Markdown test plan for the Generator t
 
 ## First, read the project rules
 1. Read `copilot-instructions.md` (symlinked to `CLAUDE.md`) — the "API stack" section
-2. Read `api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java`
+2. Read `api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java`
 3. Read `api-tests-java/src/test/resources/application.properties` for the base URL
 
 ## What you must NOT do
@@ -37,7 +37,7 @@ Save to `api-tests-java/specs/<resource-name>.md`:
     # API Test Plan: <Resource Name>
 
     **Target:** <base URL + resource path>
-    **Seed:** api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java
+    **Google:** api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java
     **Date:** <YYYY-MM-DD>
 
     ## Overview

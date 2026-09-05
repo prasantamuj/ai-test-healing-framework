@@ -37,7 +37,7 @@ the symlinks. See `CLAUDE.md` for the full chain of authority and both stacks' c
 cd ui-tests
 npm install
 npx playwright install --with-deps chromium
-npx playwright test tests/seed.spec.ts   # verify the baseline before anything else
+npx playwright test tests/google.spec.ts   # verify the baseline before anything else
 ```
 
 ### API stack

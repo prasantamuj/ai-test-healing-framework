@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 /**
  * Covers specs/jsonplaceholder-posts.md, scenarios 1.1-1.4.
- * Seed: src/test/java/com/aitest/api/tests/SeedApiTest.java
+ * Google: src/test/java/com/aitest/api/tests/GoogleApiTest.java
  */
 public class PostsApiTest extends BaseApiTest {
 

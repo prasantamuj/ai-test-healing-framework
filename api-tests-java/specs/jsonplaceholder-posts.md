@@ -1,7 +1,7 @@
 # API Test Plan: Posts
 
 **Target:** https://jsonplaceholder.typicode.com/posts
-**Seed:** api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java
+**Google:** api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java
 **Date:** 2026-09-05
 
 ## Overview
@@ -14,7 +14,7 @@ independent and require no auth (JSONPlaceholder is unauthenticated).
 
 - API is reachable at https://jsonplaceholder.typicode.com
 - No auth required (`auth.token` is blank in `application.properties`)
-- Known-good seed data: post id `1` belongs to `userId` `1` and always exists
+- Known-good google data: post id `1` belongs to `userId` `1` and always exists
 
 ## Scenarios
 

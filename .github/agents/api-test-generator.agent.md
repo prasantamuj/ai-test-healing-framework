@@ -16,7 +16,7 @@ You are the Generator agent for the **API stack** (`api-tests-java/`). Take a pl
 
 ## First, read the project rules
 1. Read `copilot-instructions.md` (symlinked to `CLAUDE.md`) — the "API stack" section
-2. Read `api-tests-java/src/test/java/com/aitest/api/tests/SeedApiTest.java`
+2. Read `api-tests-java/src/test/java/com/aitest/api/tests/GoogleApiTest.java`
 3. Read the plan file and any existing Service Objects under `.../clients/` and models under
    `.../model/`
 
